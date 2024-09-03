@@ -1,0 +1,63 @@
+1) 
+int INDICE = 13, SOMA = 0, K = 0;
+Enquanto K < INDICE faça {
+    K = K + 1;
+    SOMA = SOMA + K;
+}
+Imprimir(SOMA); //sendo no final o valor de k=91
+
+2) def fibonacci(num):
+    a, b = 0, 1
+    while b < num:
+        a, b = b, a + b
+    if b == num or num == 0:
+        return f"O número {num} pertence à sequência de Fibonacci."
+    else:
+        return f"O número {num} não pertence à sequência de Fibonacci."
+
+numero = int(input("Informe um número: "))
+resultado = pertence_fibonacci(numero)
+print(resultado)
+
+3) import json
+dados_faturamento = '''
+{
+    "faturamento_diario": [100, 200, 0, 300, 0, 400, 500, 0, 0, 600, 700, 0, 800, 0, 0, 900, 0, 1000, 0, 1100, 0, 1200, 1300, 0, 0, 1400, 0, 1500, 1600, 0, 1700]
+}
+'''
+dados = json.loads(dados_faturamento)
+faturamento_diario = [valor for valor in dados["faturamento_diario"] if valor > 0]
+menor_faturamento = min(faturamento_diario)
+maior_faturamento = max(faturamento_diario)
+media_mensal = sum(faturamento_diario) / len(faturamento_diario)
+dias_acima_media = len([dia for dia in faturamento_diario if dia > media_mensal])
+
+print(f"Menor valor de faturamento: R${menor_faturamento:.2f}")
+print(f"Maior valor de faturamento: R${maior_faturamento:.2f}")
+print(f"Número de dias com faturamento acima da média: {dias_acima_media}")
+
+4)faturamento = {
+    "SP": 67836.43,
+    "RJ": 36678.66,
+    "MG": 29229.88,
+    "ES": 27165.48,
+    "Outros": 19849.53
+}
+
+total = sum(faturamento.values())
+
+percentuais = {estado: (valor / total) * 100 for estado, valor in faturamento.items()}
+
+for estado, percentual in percentuais.items():
+    print(f"{estado}: {percentual:.2f}%")
+
+5) def inverter_string(s):
+    string_invertida = ""
+    for i in range(len(s) - 1, -1, -1):
+        string_invertida += s[i]
+    return string_invertida
+
+string = input("Informe uma string: ")
+print(f"String invertida: {inverter_string(string)}")
+
+
